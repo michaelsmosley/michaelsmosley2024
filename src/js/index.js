@@ -525,10 +525,12 @@ const linkClick = (e) => {
   lineController.DOM.linesHorizontal[1].style.top = winsize.height + "px";
   var rect = e.target.getBoundingClientRect();
   // console.log(rect);
-
+  let detailIconMin = Math.max(10 * Math.round(window.innerHeight / 100,10 * Math.round(window.innerheight / 100))); 
+  console.log("detailIconMin",detailIconMin)
+  //This is the smallest we sould want it to get.
   const linePos = {
-    horizontal: [0, -winsize.height + rect.height],
-    vertical: [0, -winsize.width + rect.width],
+    horizontal: [0, -winsize.height + Math.max(rect.height, detailIconMin)],
+    vertical: [0, -winsize.width + Math.max(rect.width, detailIconMin)],
   };
   lineController.DOM.detailIcon[0].style.backgroundImage = getComputedStyle(
     e.target
@@ -609,7 +611,7 @@ const linkClick = (e) => {
         y: winsize.height + linePos.horizontal[1],
         x:
           winsize.width / 2 > linePos.vertical[0]
-            ? linePos.vertical[0] + rect.width
+            ? linePos.vertical[0] + Math.max(rect.width, detailIconMin)
             : 0,
         width:
           winsize.width / 2 > linePos.vertical[0]
@@ -626,7 +628,7 @@ const linkClick = (e) => {
         y: linePos.horizontal[0],
         x:
           winsize.width / 2 > linePos.vertical[0]
-            ? linePos.vertical[0] + rect.width
+            ? linePos.vertical[0] + Math.max(rect.width, detailIconMin)
             : 0,
         width:
           winsize.width / 2 > linePos.vertical[0]
@@ -866,8 +868,8 @@ const populateRows = (rowName, contentfulName, soloName) => {
           )}</a>`;
         },
         [BLOCKS.EMBEDDED_ASSET]: (node, next) => {
-            const asset = assetMap.get(node.data.target.sys.id);
-          return  `<div class='detail-item'><div class="detail-item-sub"><img
+          const asset = assetMap.get(node.data.target.sys.id);
+          return `<div class='detail-item'><div class="detail-item-sub"><img
           src=${asset.url}
           height='100'
           alt=${asset.title}

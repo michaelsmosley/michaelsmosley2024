@@ -660,7 +660,7 @@ a:focus-visible {
 	opacity: 0;
 	display: flex;
 	justify-content: center;
-	margin-top: 2vw;
+	margin-top: max(2vw,2vh);
 	img {
 		height: 30px;
 		/* margin-right: .5em; */
@@ -680,8 +680,8 @@ a:focus-visible {
 .detailIcon {
 
 	position: fixed;
-	width: 100px;
-	height: 100px;
+	width: max(10vh 10vw);
+	height: max(10vh 10vw);
 	top:0px;
 	z-index: 400;
 	opacity:0;
