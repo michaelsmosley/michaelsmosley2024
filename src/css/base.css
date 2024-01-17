@@ -413,7 +413,7 @@ a:focus-visible {
 	justify-content: center;
 	justify-items: center;
 	--img-size: var(--img-size-large);
-	grid-template-columns: repeat(4,var(--img-size));
+	grid-template-columns: repeat(5,var(--img-size));
 	grid-template-rows: repeat(2,var(--img-size));
 }
 

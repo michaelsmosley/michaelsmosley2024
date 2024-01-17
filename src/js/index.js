@@ -898,7 +898,7 @@ const populateRows = (rowName, contentfulName, soloName) => {
     const node = document.createElement("div");
     node.classList.add("cell__img");
     node.innerHTML = html;
-    if (i < 4) {
+    if (i < 5) {
       elem.appendChild(node);
     } else {
       elemPreview.appendChild(node);
