@@ -537,7 +537,7 @@ a:focus-visible {
 	.preview-text {
 		/* font-weight: bolder; */
 		font-family: 'Bungee Inline', sans-serif;
-		font-size: min(5vw, 5vh);
+		font-size: min(4vw, 4vh);
 	}
   }
 
