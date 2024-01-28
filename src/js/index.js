@@ -825,6 +825,7 @@ function contentfulDataCheck() {
     populateRows("jobs", "Jobs", "job");
     populateRows("work", "Projects", "project");
     populateRows("photos", "Photos", "photo");
+    populateRows("experiments", "Experiments", "experiment");
     updateRows();
     document.body.classList.remove("loading");
   }

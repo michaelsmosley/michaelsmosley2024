@@ -189,7 +189,32 @@ const fetchData = async () => {
     }
     `;
   };
+  const experimentQuery = (id, index) => {
+    return `{ 
+        
+       experiment(id: "${id}") {
+        description {
+          json
+        }
+        title
+        sys {
+          id
+        }
 
+          poster {
+            title
+            description
+            contentType
+            fileName
+            size
+            url
+            width
+            height
+          }
+        }
+    }
+    `;
+  };
   const aboutQuery = (id, index) => {
     return `{ 
         
@@ -256,6 +281,8 @@ const fetchData = async () => {
             ? jobQuery(item.sys.id, index)            
             : item.__typename === "About"
             ? aboutQuery(item.sys.id, index)
+            : item.__typename === "Experiment"
+            ? experimentQuery(item.sys.id, index)
             : projectQuery(item.sys.id, index);
         await fetch(
           `https://graphql.contentful.com/content/v1/spaces/${contentfulSpaceID}/environments/master?access_token=${contentfulAccessToken}`,
